@@ -68,6 +68,71 @@
     </div>
 
     <div class="container">
+        <h2>Galerie Produse</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Buchet+Lavand%C4%83" alt="Buchet Lavandă">
+                <p>Buchet Lavandă</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Ulei+Esen%C8%9Bial" alt="Ulei Esențial">
+                <p>Ulei Esențial</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Sac+Lavand%C4%83" alt="Sac Lavandă">
+                <p>Sac cu Lavandă</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=S%C4%83pun+Lavand%C4%83" alt="Săpun Lavandă">
+                <p>Săpun cu Lavandă</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Flori+Lavand%C4%83" alt="Flori Lavandă">
+                <p>Flori de Lavandă</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Tufe+Lavand%C4%83+1+an" alt="Tufe Lavandă 1 an">
+                <p>Tufe Lavandă - 1 an</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Tufe+Lavand%C4%83+2+ani" alt="Tufe Lavandă 2 ani">
+                <p>Tufe Lavandă - 2 ani</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Tufe+Lavand%C4%83+3+ani" alt="Tufe Lavandă 3 ani">
+                <p>Tufe Lavandă - 3 ani</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .gallery-item p {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>    <div class="container">
         <h2>Comandă Lavandă</h2>
         <form id="order-form">
             <label for="product">Alege produsul:</label>
