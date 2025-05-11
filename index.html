@@ -2,8 +2,8 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
+    <title>Lavanda de România</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comandă Lavandă</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,12 +14,17 @@
         }
 
         .container {
-            max-width: 500px;
+            max-width: 700px;
             margin: auto;
             background: #fff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h1, h2 {
+            color: #7c4dff;
         }
 
         label, select, input {
@@ -49,19 +54,32 @@
 <body>
 
     <div class="container">
-        <h1>Comandă Lavandă</h1>
+        <h1>Lavanda de România</h1>
+        <p>Bine ați venit pe site-ul nostru!</p>
+    </div>
 
+    <div class="container">
+        <h2>Despre noi</h2>
+        <p>
+            Suntem o mică afacere de familie din România, pasionați de natură și de beneficiile lavandei.
+            Cultivăm lavanda cu grijă, fără pesticide sau substanțe chimice, pentru a oferi produse cât mai naturale și sănătoase.
+            Fiecare buchet, fiecare sticluță de ulei esențial sau săculeț parfumat este pregătit cu respect pentru mediu și dragoste pentru tradiție.
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>Comandă Lavandă</h2>
         <form id="order-form">
             <label for="product">Alege produsul:</label>
             <select id="product">
                 <option value="buchet">Buchet Lavandă - 30 Lei</option>
                 <option value="ulei">Ulei Esențial - 60 Lei</option>
                 <option value="sac">Sac cu Lavandă - 15 Lei</option>
-                <option value="sapun">Săpun cu flori Lavandă - 42 Lei</option>
+                <option value="sapun">Săpun cu Lavandă - 42 Lei</option>
                 <option value="flori">Flori de Lavandă - 9 Lei</option>
-                <option value="tufe1">Tufe Lavandă 1 an - 35 Lei</option>
-                <option value="tufe2">Tufe Lavandă 2 ani - 40 Lei</option>
-                <option value="tufe3">Tufe Lavandă 3 ani - 46 Lei</option>
+                <option value="tufa1">Tufe Lavandă - 1 an - 35 Lei</option>
+                <option value="tufa2">Tufe Lavandă - 2 ani - 40 Lei</option>
+                <option value="tufa3">Tufe Lavandă - 3 ani - 46 Lei</option>
             </select>
 
             <label for="quantity">Cantitate:</label>
@@ -84,20 +102,20 @@
             sac: 15,
             sapun: 42,
             flori: 9,
-            tufe1: 35,
-            tufe2: 40,
-            tufe3: 46
+            tufa1: 35,
+            tufa2: 40,
+            tufa3: 46
         };
 
         const productNames = {
             buchet: "Buchet Lavandă",
             ulei: "Ulei Esențial",
             sac: "Sac cu Lavandă",
-            sapun: "Săpun cu flori de Lavandă",
+            sapun: "Săpun cu Lavandă",
             flori: "Flori de Lavandă",
-            tufe1: "Tufe de Lavandă de 1 an",
-            tufe2: "Tufe de Lavandă de 2 ani",
-            tufe3: "Tufe de Lavandă de 3 ani"
+            tufa1: "Tufe Lavandă - 1 an",
+            tufa2: "Tufe Lavandă - 2 ani",
+            tufa3: "Tufe Lavandă - 3 ani"
         };
 
         function calculateTotal() {
@@ -111,6 +129,7 @@
             const product = document.getElementById("product").value;
             const quantity = parseInt(document.getElementById("quantity").value);
             const total = prices[product] * quantity;
+
             const message = `Bună ziua! Aș dori să comand ${quantity} x ${productNames[product]}.\nPreț total: ${total} Lei.`;
             const phoneNumber = "00447533255533";
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
