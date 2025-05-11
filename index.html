@@ -2,15 +2,6 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Lavanda de Romania</title>
-    <limk real="stylesheet" href="style.css"
-        </head>
-        <body>
-            <h1>Lavanda de romania</h1>
-            <p>Bine ati venit pe situl nostru!</p>
-            </body>
-        <html>
-        </body>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comandă Lavandă</title>
     <style>
@@ -66,11 +57,11 @@
                 <option value="buchet">Buchet Lavandă - 30 Lei</option>
                 <option value="ulei">Ulei Esențial - 60 Lei</option>
                 <option value="sac">Sac cu Lavandă - 15 Lei</option>
-                <option value="sapun">Sapun cu flori Lavandă - 42 Lei</option> 
-                <option value="Fori">Flori de Lavanda - 9 Lei</option>
-                <option value="tufe">Tufe de Lavanda de 1 an - 35 Lei</option>   
-                <option value="tufe">Tufe de Lavandă de 2 ani - 40 Lei</option>     
-                <option value="tuef">Tufe de Lavandă de 3 ani - 46 Lei</option>      
+                <option value="sapun">Săpun cu flori Lavandă - 42 Lei</option>
+                <option value="flori">Flori de Lavandă - 9 Lei</option>
+                <option value="tufe1">Tufe Lavandă 1 an - 35 Lei</option>
+                <option value="tufe2">Tufe Lavandă 2 ani - 40 Lei</option>
+                <option value="tufe3">Tufe Lavandă 3 ani - 46 Lei</option>
             </select>
 
             <label for="quantity">Cantitate:</label>
@@ -83,7 +74,6 @@
             Preț Total: <span id="total">0</span> Lei
         </div>
 
-        <!-- Butonul WhatsApp pentru trimiterea comenzii -->
         <button type="button" onclick="sendWhatsApp()">Trimite Comanda pe WhatsApp</button>
     </div>
 
@@ -91,12 +81,23 @@
         const prices = {
             buchet: 30,
             ulei: 60,
-            sac: 15
-            sapun: 42
-            flori: 9
-            tufe: 37
-            tufe: 40
-            tufe: 46
+            sac: 15,
+            sapun: 42,
+            flori: 9,
+            tufe1: 35,
+            tufe2: 40,
+            tufe3: 46
+        };
+
+        const productNames = {
+            buchet: "Buchet Lavandă",
+            ulei: "Ulei Esențial",
+            sac: "Sac cu Lavandă",
+            sapun: "Săpun cu flori de Lavandă",
+            flori: "Flori de Lavandă",
+            tufe1: "Tufe de Lavandă de 1 an",
+            tufe2: "Tufe de Lavandă de 2 ani",
+            tufe3: "Tufe de Lavandă de 3 ani"
         };
 
         function calculateTotal() {
@@ -110,22 +111,8 @@
             const product = document.getElementById("product").value;
             const quantity = parseInt(document.getElementById("quantity").value);
             const total = prices[product] * quantity;
-
-            const productNames = {
-                buchet: "Buchet Lavandă",
-                ulei: "Ulei Esențial",
-                sac: "Sac cu Lavandă"
-                sapun: "Sapun cu flori de Lavanda'
-                flori: "Flori de Lavanda"
-                tufe: "Tufe de lavanda de 1 an"
-                tufe: "Tufe de Lavanda de 2 ani"
-                tufe: "Tufe de Lavanda de 3 ani"
-
-            };
-
             const message = `Bună ziua! Aș dori să comand ${quantity} x ${productNames[product]}.\nPreț total: ${total} Lei.`;
-            const phoneNumber = "00447533255533"; 
-
+            const phoneNumber = "00447533255533";
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, "_blank");
         }
