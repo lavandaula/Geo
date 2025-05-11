@@ -78,6 +78,11 @@
             buchet: 30,
             ulei: 60,
             sac: 15
+            sapun: 42
+            flori: 9
+            tufe: 37
+            tufe: 40
+            tufe: 46
         };
 
         function calculateTotal() {
@@ -96,11 +101,16 @@
                 buchet: "Buchet Lavandă",
                 ulei: "Ulei Esențial",
                 sac: "Sac cu Lavandă"
+                sapun: "Sapun cu flori de Lavanda'
+                flori: "Flori de Lavanda"
+                tufe: "Tufe de lavanda de 1 an"
+                tufe: "Tufe de Lavanda de 2 ani"
+                tufe: "Tufe de Lavanda de 3 ani"
 
             };
 
             const message = `Bună ziua! Aș dori să comand ${quantity} x ${productNames[product]}.\nPreț total: ${total} Lei.`;
-            const phoneNumber = "40712345678"; // Înlocuiește cu numărul tău real
+            const phoneNumber = "00447533255533"; 
 
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, "_blank");
