@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavandă de România - Comenzi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Lavandă de România</h1>
+        <nav>
+            <a href="#despre">Despre</a>
+            <a href="#produse">Produse</a>
+            <a href="#comanda">Comandă</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Lavandă naturală, crescută cu grijă în România</h2>
+        <p>Produse artizanale, recoltate manual, pentru casa și sufletul tău.</p>
+        <a href="#produse" class="btn">Vezi produsele</a>
+    </section>
+
+    <section id="despre">
+        <h2>Despre noi</h2>
+        <p>Suntem o familie din România care cultivă lavandă cu pasiune și grijă. Fără pesticide, doar natură pură.</p>
+    </section>
+
+    <section id="produse">
+        <h2>Produsele noastre</h2>
+        <div class="product-list">
+            <div class="product">
+                <h3>Buchet de lavandă uscată</h3>
+                <p>25 lei/buc</p>
+            </div>
+            <div class="product">
+                <h3>Ulei esențial de lavandă</h3>
+                <p>40 lei / 10ml</p>
+            </div>
+            <div class="product">
+                <h3>Săculeț parfumat</h3>
+                <p>10 lei/buc</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="comanda">
+        <h2>Comandă produs</h2>
+        <form action="mailto:contact@lavandaderomania.ro" method="post" enctype="text/plain">
+            <label for="nume">Nume:</label><br>
+            <input type="text" id="nume" name="nume" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="telefon">Telefon:</label><br>
+            <input type="tel" id="telefon" name="telefon" required><br><br>
+
+            <label for="produs">Alege produsul dorit:</label><br>
+            <select id="produs" name="produs">
+                <option value="buchet_lavanda">Buchet de lavandă uscată</option>
+                <option value="ulei_lavanda">Ulei esențial de lavandă</option>
+                <option value="saculet">Săculeț parfumat</option>
+            </select><br><br>
+
+            <input type="submit" value="Trimite comanda">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lavandă de România. Toate drepturile rezervate.</p>
+    </footer>
+</body>
+</html>
