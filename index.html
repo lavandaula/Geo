@@ -156,7 +156,58 @@
         <div id="total-container">
             Preț Total: <span id="total">0</span> Lei
         </div>
+<h2>Metoda de Plată</h2>
+            <label for="payment-method">Alege metoda de plată:</label>
+            <select id="payment-method">
+                <option value="online">Plată Online</option>
+                <option value="ramburs">Plată la livrare</option>
+                <option value="transfer">Transfer bancar</option>
+            </select>
 
+            <div id="payment-details"></div>
+
+            <button type="submit">Plasează Comanda</button>
+        </form>
+    </div>
+
+    <script>
+        // Prețurile pentru fiecare produs
+        const prices = {
+            buchet: 30,
+            ulei: 60,
+            sac: 15,
+            sapun: 42,
+            flori: 9,
+            tufe1: 35,
+            tufe2: 40,
+            tufe3: 46
+        };
+
+        // Funcția care calculează prețul total
+        function calculateTotal() {
+            const product = document.getElementById("product").value;
+            const quantity = parseInt(document.getElementById("quantity").value);
+            const total = prices[product] * quantity;
+            document.getElementById("total").innerText = total;
+        }
+
+        // Funcția care schimbă câmpurile de plată în funcție de metoda aleasă
+        document.getElementById("payment-method").addEventListener("change", function() {
+            const paymentMethod = this.value;
+            const paymentDetails = document.getElementById("payment-details");
+
+            if (paymentMethod === "online") {
+                paymentDetails.innerHTML = `<label for="card">Număr card:</label><input type="text" id="card" placeholder="Introduceti numărul cardului">`;
+            } else if (paymentMethod === "ramburs") {
+                paymentDetails.innerHTML = `<p>Veți plăti la livrare.</p>`;
+            } else if (paymentMethod === "transfer") {
+                paymentDetails.innerHTML = `<label for="iban">IBAN:</label><input type="text" id="iban" placeholder="Introduceti IBAN-ul">`;
+            }
+        });
+    </script>
+
+</body>
+</html>
         <button type="button" onclick="sendWhatsApp()">Trimite Comanda pe WhatsApp</button>
     </div>
 
