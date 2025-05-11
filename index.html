@@ -1,101 +1,121 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Lavandă de vânzare</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-background-color: #f7f3f0;
-color: #333;
-padding: 20px;
-text-align: center;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lavandă de vânzare</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f3f0;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+    }
 
-.container {
-max-width: 500px;
-margin: auto;
-background: #fff;
-padding: 30px;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0,0,0,0.1);
-margin-bottom: 40px;
-}
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
 
-label, select, input {
-display: block;
-margin: 15px auto;
-width: 80%;
-font-size: 1rem;
-}
+    label, select, input {
+      display: block;
+      margin: 15px auto;
+      width: 80%;
+      font-size: 1rem;
+    }
 
-button {
-padding: 10px 20px;
-font-size: 1rem;
-background-color: #b57edc;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-}
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #b57edc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
 
-#total-container {
-margin-top: 20px;
-font-size: 1.2rem;
-font-weight: bold;
-}
+    #total-container {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
 
-img {
-width: 100%;
-max-width: 600px;
-border-radius: 10px;
-margin-bottom: 20px;
-}
-</style>
+    img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
 
-<h1>Bun venit la LavandaUla!</h1>
-<p>Cumpără lavandă naturală crescută în România – ideală pentru relaxare și decor.</p>
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Lavender_Purple_flowers.jpg" alt="Lavandă" />
+  <h1>Bun venit la LavandaUla!</h1>
+  <p>Cumpără lavandă naturală crescută în România – ideală pentru relaxare și decor.</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Lavender_Purple_flowers.jpg" alt="Lavandă" />
 
-<div class="container">
-<h2>Plasează o Comandă</h2>
+  <div class="container">
+    <h2>Plasează o Comandă</h2>
 
-<form id="order-form">
-<label for="product">Alege produsul:</label>
-<select id="product">
-<option value="buchet">Buchet Lavandă - 30 Lei</option>
-<option value="ulei">Ulei Esențial - 60 Lei</option>
-<option value="sac">Sac cu Lavandă - 15 Lei</option>
-</select>
+    <form id="order-form">
+      <label for="product">Alege produsul:</label>
+      <select id="product">
+        <option value="buchet">Buchet Lavandă - 30 Lei</option>
+        <option value="ulei">Ulei Esențial - 60 Lei</option>
+        <option value="sac">Sac cu Lavandă - 15 Lei</option>
+      </select>
 
-<label for="quantity">Cantitate:</label>
-<input type="number" id="quantity" name="quantity" min="1" value="1" />
+      <label for="quantity">Cantitate:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" />
 
-<button type="button" onclick="calculateTotal()">Calculează Totalul</button>
-</form>
+      <button type="button" onclick="calculateTotal()">Calculează Totalul</button>
+      <button type="button" onclick="sendWhatsApp()">Trimite Comanda pe WhatsApp</button>
+    </form>
 
-<div id="total-container">
-Preț Total: <span id="total">0</span> Lei
-</div>
-</div>
+    <div id="total-container">
+      Preț Total: <span id="total">0</span> Lei
+    </div>
+  </div>
 
-<script>
-const prices = {
-buchet: 30,
-ulei: 60,
-sac: 15
-};
+  <script>
+    const prices = {
+      buchet: 30,
+      ulei: 60,
+      sac: 15
+    };
 
-function calculateTotal() {
-const product = document.getElementById("product").value;
-const quantity = parseInt(document.getElementById("quantity").value);
-const total = prices[product] * quantity;
-document.getElementById("total").innerText = total;
-}
-</script>
+    function calculateTotal() {
+      const product = document.getElementById("product").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const total = prices[product] * quantity;
+      document.getElementById("total").innerText = total;
+    }
+
+    function sendWhatsApp() {
+      const product = document.getElementById("product").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const total = prices[product] * quantity;
+
+      const productNames = {
+        buchet: "Buchet Lavandă",
+        ulei: "Ulei Esențial",
+        sac: "Sac cu Lavandă"
+      };
+
+      const message = `Bună ziua! Aș dori să comand ${quantity} x ${productNames[product]}.\nPreț total: ${total} Lei.`;
+      const phoneNumber = "40712345678"; // Înlocuiește cu numărul tău real, ex: 00447533255533
+
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>
 
 </body>
 </html>
